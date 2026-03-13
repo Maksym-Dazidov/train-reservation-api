@@ -55,6 +55,10 @@ class Crew(TimeStampedModel):
             models.Index(fields=['last_name', 'first_name']),
         ]
 
+    @property
+    def full_name(self):
+        return f"{self.first_name} {self.last_name}".strip()
+
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
 

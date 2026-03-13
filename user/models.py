@@ -52,9 +52,9 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = "Users"
         ordering = ("-date_joined",)
 
-    def __str__(self):
-        return self.email
-
     @property
     def full_name(self):
         return f"{self.first_name} {self.last_name}".strip()
+
+    def __str__(self):
+        return self.email
