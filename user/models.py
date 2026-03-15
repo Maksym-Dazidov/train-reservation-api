@@ -53,7 +53,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         ordering = ("-date_joined",)
 
     @property
-    def full_name(self):
+    def full_name(self) -> str:
         return f"{self.first_name} {self.last_name}".strip()
 
     def __str__(self):
