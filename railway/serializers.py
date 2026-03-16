@@ -55,9 +55,21 @@ class JourneySerializer(serializers.ModelSerializer):
     train = TrainSerializer(read_only=True)
     crew = CrewSerializer(many=True, read_only=True)
 
+    taken_tickets = serializers.IntegerField(read_only=True)
+    free_tickets = serializers.IntegerField(read_only=True)
+
     class Meta:
         model = Journey
-        fields = ('id', 'route', 'train', 'crew', 'departure_time', 'arrival_time')
+        fields = (
+            'id',
+            'route',
+            'train',
+            'crew',
+            'departure_time',
+            'arrival_time',
+            'taken_tickets',
+            'free_tickets'
+        )
 
 
 class TrainWriteSerializer(serializers.ModelSerializer):

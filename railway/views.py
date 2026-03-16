@@ -1,3 +1,4 @@
+from django.db.models import Count, F
 from rest_framework import viewsets, permissions, mixins
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -75,6 +76,10 @@ class JourneyViewSet(viewsets.ModelViewSet):
         'route__destination'
     ).prefetch_related(
         'crew'
+    ).annotate(
+        taken_tickets=Count('tickets', distinct=True),
+    ).annotate(
+        free_tickets=F('train__carriage_num') * F('train__places_in_carriage') - F('taken_tickets')
     )
     permission_classes = [IsAdminOrReadOnly]
     pagination_class = JourneyPagination
