@@ -29,6 +29,7 @@ from .serializers import (
 )
 from .permissions import IsAdminOrReadOnly
 from .pagination import JourneyPagination
+from .filters import JourneyFilter
 
 
 class TrainTypeViewSet(viewsets.ReadOnlyModelViewSet):
@@ -83,6 +84,7 @@ class JourneyViewSet(viewsets.ModelViewSet):
     )
     permission_classes = [IsAdminOrReadOnly]
     pagination_class = JourneyPagination
+    filterset_class = JourneyFilter
 
     def get_serializer_class(self):
         if self.action in ('create', 'update', 'partial_update'):
