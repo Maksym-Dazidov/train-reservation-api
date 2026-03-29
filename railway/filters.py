@@ -1,5 +1,5 @@
 import django_filters
-from .models import Journey
+from railway.models import Journey
 
 
 class JourneyFilter(django_filters.FilterSet):

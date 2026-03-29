@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.db import transaction, IntegrityError
 
-from .models import (
+from railway.models import (
     TrainType,
     Station,
     Crew,

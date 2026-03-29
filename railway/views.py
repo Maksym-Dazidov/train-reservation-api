@@ -3,7 +3,7 @@ from rest_framework import viewsets, permissions, mixins
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
-from .models import (
+from railway.models import (
     TrainType,
     Station,
     Crew,
@@ -13,7 +13,7 @@ from .models import (
     Order,
     Ticket
 )
-from .serializers import (
+from railway.serializers import (
     TrainTypeSerializer,
     StationSerializer,
     CrewSerializer,
@@ -27,9 +27,9 @@ from .serializers import (
     OrderCreateSerializer,
     TicketSerializer
 )
-from .permissions import IsAdminOrReadOnly
-from .pagination import JourneyPagination
-from .filters import JourneyFilter
+from railway.permissions import IsAdminOrReadOnly
+from railway.pagination import JourneyPagination
+from railway.filters import JourneyFilter
 
 
 class TrainTypeViewSet(viewsets.ReadOnlyModelViewSet):
