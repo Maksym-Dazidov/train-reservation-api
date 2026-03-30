@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'train_reservation_api.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'train_reservation_api.settings.production')
 
 application = get_asgi_application()
